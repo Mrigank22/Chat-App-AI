@@ -3,8 +3,8 @@ import './App.css';
 import MarkdownRenderer from './MarkdownRenderer';
 import { FiPaperclip } from "react-icons/fi";
 import { jwtDecode } from 'jwt-decode';
- 
-
+import { IoCopyOutline } from "react-icons/io5";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function Appli() {
   const [question, setQuestion] = useState('');
@@ -37,6 +37,46 @@ function Appli() {
   const handlePaperclipClick = () => {
     fileInputRef.current.click(); // Simulate click on file input
   };
+
+
+
+
+  const fetchHistory = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('You need to be logged in to view history.');
+      return;
+    }
+  
+    setLoading(true);
+    try {
+      const response = await fetch(`${backendUrl}/history`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch history');
+      }
+  
+      const history = await response.json();
+      setConversation(history);  // Assuming history is an array of previous conversations
+    } catch (error) {
+      console.error('Error fetching history:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
+
+
+
+
+
+
 
   const uploadFile = async () => {
     if (!file) {
@@ -142,6 +182,11 @@ function Appli() {
           <div key={index} className={`message ${msg.role}`}>
             <strong>{msg.role === 'user' ? 'You' : 'GPT-4'}:</strong>
             <MarkdownRenderer content={msg.content} />
+            {msg.role === 'AI' && (
+              <CopyToClipboard text={msg.content}>
+                <IoCopyOutline className="copy-icon" title="Copy to clipboard" />
+              </CopyToClipboard>
+            )}
           </div>
         ))}
         <div ref={chatEndRef} />
@@ -165,11 +210,14 @@ function Appli() {
         onChange={handleFileChange}
       />
       {file && <p>Selected file: {file.name}</p>}
-
+      
       <button className="button" onClick={uploadFile} disabled={loading || !file}>
         {loading ? 'Uploading...' : 'Upload File'}
       </button>
-
+      
+      <button className="button" onClick={fetchHistory} disabled={loading}>
+        {loading ? 'Fetching' : 'History'}
+      </button>
       <br />
       <button className="button" onClick={askQuestion} disabled={loading}>
         {loading ? 'Loading...' : 'Ask'}
