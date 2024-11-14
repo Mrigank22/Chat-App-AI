@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your React app URL
+  origin: 'https://ai-chat-bot-front-end.onrender.com', // Replace with your React app URL
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // If you're using cookies or authentication
