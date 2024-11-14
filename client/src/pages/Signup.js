@@ -20,7 +20,7 @@ function Signup() {
 
     // Handle signup logic with API
     try {
-      const response = await fetch(`http://${backendUrl}/auth/register`, {
+      const response = await fetch(`${backendUrl}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

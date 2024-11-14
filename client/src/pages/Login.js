@@ -15,7 +15,7 @@ function Login() {
 
     // Handle login logic with API
     try {
-      const response = await fetch(`http://${backendUrl}/auth/login`, {
+      const response = await fetch(`${backendUrl}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
