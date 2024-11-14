@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Auth.css"; // Assuming auth.css exists for styling
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL
+
 function Login() {
   const [username, setUsername] = useState(""); // Changed from email to username
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ function Login() {
 
     // Handle login logic with API
     try {
-      const response = await fetch('http://localhost:5000/auth/login', {
+      const response = await fetch(`http://${backendUrl}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
