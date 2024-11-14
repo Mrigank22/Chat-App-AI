@@ -11,7 +11,7 @@ function Appli() {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
   const [file, setFile] = useState(null);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const FILE_SIZE_LIMIT = 20 * 1024 * 1024; // 5MB size limit
   const fileInputRef = useRef(null);
