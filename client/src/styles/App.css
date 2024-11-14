@@ -7,10 +7,22 @@ body {
   color: #d4d4d4;
 }
 
+#root{
+  width:100%;
+  height:100%;
+}
+
+
+.App{
+  display:flex;
+  justify-content: center;
+  width:100%;
+}
+
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px;
+  max-width: 90%;
+  margin: 0 20px;
+  padding: 0;
   text-align: center;
 }
 
@@ -21,13 +33,14 @@ h1 {
 }
 
 .chat-container {
-  height: 400px;
+  height: 550px;
   overflow-y: auto;
   background-color: #2d2d2d;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
+  width:100%;
 }
 
 .chat-container::-webkit-scrollbar {
@@ -57,7 +70,10 @@ h1 {
 .message.assistant strong {
   color: #ff9800;
 }
-
+.message .markdown-body code{
+  color:#FAFAFA;
+  text-align: left;
+}
 .textarea {
   width: 100%;
   background-color: #2d2d2d;
@@ -75,6 +91,7 @@ h1 {
   color: #ffffff;
 }
 .copy-icon{
+  color:#00aaff;
   font-size: 35px;
   cursor: pointer;
 }
@@ -98,10 +115,31 @@ h1 {
   background-color: #0056b3;
 }
 
-
-
-
-
 .paperclip-icon{
   color: white;
+}
+
+.markdown-body pre {
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.markdown-body code {
+  font-family: 'Courier New', monospace;
+  color: #333;
+}
+
+.copy-btn {
+  margin-left: 0.5rem;
+  background-color: #04067ee2;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+  background-color: #d0d0d0;
 }

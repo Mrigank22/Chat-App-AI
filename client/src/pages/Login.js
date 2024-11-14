@@ -1,7 +1,7 @@
 // src/components/Login.js
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Auth.css"; // Assuming auth.css exists for styling
+import "../styles/Auth.css"; // Assuming auth.css exists for styling
 
 function Login() {
   const [username, setUsername] = useState(""); // Changed from email to username
@@ -13,7 +13,7 @@ function Login() {
 
     // Handle login logic with API
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

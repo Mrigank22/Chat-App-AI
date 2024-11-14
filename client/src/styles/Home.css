@@ -1,0 +1,59 @@
+.home-container {
+    background-color: #0A1128;
+    color: #FEFCFB;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .content {
+    background-color: #001F54;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .welcome-text {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1282A2;
+  }
+  
+  .description {
+    font-size: 18px;
+    color: #FEFCFB;
+    margin: 20px 0;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .signup-button,
+  .login-button {
+    background-color: #034078;
+    color: #FEFCFB;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 45%;
+  }
+  
+  .signup-button:hover,
+  .login-button:hover {
+    background-color: #1282A2;
+  }
+  
+  .signup-button:focus,
+  .login-button:focus {
+    outline: none;
+  }
+  

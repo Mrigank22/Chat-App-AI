@@ -1,7 +1,7 @@
 // src/components/Signup.js
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Auth.css"; // Assuming auth.css is already created for styling
+import "../styles/Auth.css"; // Assuming auth.css is already created for styling
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ function Signup() {
 
     // Handle signup logic with API
     try {
-      const response = await fetch('http://localhost:5000/register', {
+      const response = await fetch('http://localhost:5000/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

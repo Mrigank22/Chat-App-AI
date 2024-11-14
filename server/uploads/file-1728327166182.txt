@@ -1,0 +1,34 @@
+Nocturnals
+About team:-
+Member 1:- 
+Name:- Mrigank
+Branch:- DSAI
+Role:- Front-End using React and Developed Back-end logic for authentication and storage of chat history in mongo db. 
+Member 2:-
+Name:- Valli Sri Atyam
+Branch:- ECE 
+Role:- Developed Front-end using React and developed Back-end logic for file upload and API call.
+Approach to Task:
+Our journey towards building a seamless chat application began with the implementation of the core functionality: enabling basic communication between the user and the chatbot. We chose to display the chatbot's responses in Markdown format for a cleaner and more readable user interface, leveraging the Highlight.js library for syntax highlighting. This not only improved the aesthetic of code blocks but also enhanced the overall user experience when interacting with the chatbot.
+Next, we tackled the file upload functionality, which was a key feature we wanted to integrate. To achieve this, we opted for Multer.js, a Node.js middleware that simplifies handling multipart/form-data, primarily for file uploads. While incorporating this feature, we encountered several challenges, particularly around how to treat uploaded files and user-provided prompts as separate entities within the same session. This required us to re-engineer how the file data and chat prompts were processed contextually.
+During the implementation phase, we ran into CORS (Cross-Origin Resource Sharing) issues. These errors occurred because browser requests from a different domain than the server’s were being blocked. To resolve this, we configured the CORS policy correctly by explicitly allowing the server’s domain in the package.json file of the client-side application, ensuring smooth communication between the front-end and the server.
+With file uploads functioning, we shifted our focus to building robust authentication and user management systems. The idea was to give each user a personalized experience by allowing them to log in, save their chat history, and access it whenever needed. Using MongoDB as our database, we structured the system so that upon logging in, each user's credentials, as well as their chat history, would be securely stored. When a user navigates to the /history route, the system fetches and displays their specific chat history in the response area, creating a personalized experience. This ensured that every user has access to their previous conversations, making the chatbot not only interactive but also context-aware over time.
+  
+Tasks we unable to complete: voice integration is left we have an approach but due to nsufficent time we unable to attempt it even…
+
+
+Our approach goes like this …
+•  Web Speech API (SpeechRecognition): This browser API is used to recognize the user's speech and convert it into text.
+•  Initialization: Set up the SpeechRecognition object and configure it to listen for speech input when a microphone button is clicked.
+•  Listening: Once the user clicks the microphone button, speech recognition is started. The browser listens to the user’s voice.
+•  Transcription: The user’s voice is processed in real-time, converting spoken words into text.
+•  Error Handling: Manage potential errors (e.g., no input, speech not recognized, etc.).
+
+•  Text Submission: After the voice is transcribed to text, the text is automatically sent to the backend (such as OpenAI's API or any AI service) as a question.
+•  AI Response: The AI generates a response based on the transcribed question.
+The AI’s response is displayed in the chat interface, just like any text-based conversation.
+•  Speech Synthesis API (TTS): The browser's built-in SpeechSynthesis API is used to convert the AI's text response back into voice.
+•  Read Response Aloud: The AI’s text response is read aloud to the user, providing a fully voice-driven interaction.
+•  Web Speech API (SpeechRecognition): Captures and transcribes user speech into text.
+•  Speech Synthesis API (optional): Converts text responses into voice.
+•  Backend API (OpenAI or others): Processes the user’s input and generates intelligent responses.

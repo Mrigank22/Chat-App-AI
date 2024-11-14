@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   chatHistory: [
     {
       role: String,
+      question: String,
       content: String,
       timestamp: { type: Date, default: Date.now }
     }
