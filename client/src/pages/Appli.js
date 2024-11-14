@@ -4,7 +4,6 @@ import MarkdownRenderer from '../utils/MarkdownRenderer';
 import { FiPaperclip } from "react-icons/fi";
 import { IoCopyOutline } from "react-icons/io5";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-const dotenv = require('dotenv')
 
 function Appli() {
   const [question, setQuestion] = useState('');
